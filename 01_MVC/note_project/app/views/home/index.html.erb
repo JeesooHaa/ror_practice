@@ -1,0 +1,17 @@
+<h1>전체 글 목록입니다.</h1>
+<%Post.all.each do |post| %>
+  제목: <%=post.title%><br>
+  내용: <%=post.content%><br>
+  --------------------<br>
+<%end%>
+<%# 여기에 = 을 넣으면 반복문이 도는 내용을 확인 가능하다. %>
+<%@posts.each do |post|%>
+  <%# = 이 있으면 실행되는 내용이 보인다. 없으면 보이지 않는다. %>
+  제목: <%=post.title%><br>
+  내용: <%=post.content%><br>
+  <a href="/home/destroy/<%=post.id%>">[삭제1]</a><br>
+  <%=link_to "[삭제2]", "/home/destroy/#{post.id}" %>
+  <a href="/home/edit/<%=post.id%>">[수정]</a><br>
+  --------------------<br>
+<%end%>
+<a href="/home/new">새 글 쓰기</a>
